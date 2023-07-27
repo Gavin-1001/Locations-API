@@ -26,4 +26,9 @@ public class AuthController {
         return new ResponseEntity<>(authenticationService.saveUser(authUser), HttpStatus.CREATED);
     }
 
+    @PostMapping("/signin")
+    public ResponseEntity<?> signIn(@RequestBody AuthUser user) {
+        return new ResponseEntity<>(authenticationService.signInAndReturnJWT(user), HttpStatus.OK);
+    }
+
 }
