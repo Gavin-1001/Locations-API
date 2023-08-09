@@ -1,9 +1,12 @@
 package com.locations.api.Services.JwtRefreshTokenService;
 
-import org.yaml.snakeyaml.tokens.Token;
+import com.locations.api.Entity.AuthUser;
+import com.locations.api.Entity.JwtRefreshToken;
 
 public interface JwtRefreshTokenService {
 
 
-    Token createRefreshToken(String authUserId);
+    JwtRefreshToken createRefreshToken(String authUserId);
+
+    AuthUser generateAccessTokenFromRefreshToken(String refreshTokenId);
 }

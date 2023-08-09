@@ -5,9 +5,11 @@ import javax.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
-
 public class AuthUser {
 
     @Id
@@ -29,16 +31,21 @@ public class AuthUser {
     @Transient
     private String refreshToken;
 
-    @Column()
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
     private Role role;
 
-    public AuthUser(String authUserId, String username, String password, String accessToken, String refreshToken) {
+    @ManyToMany
+    private List<Locations> locationsList = new ArrayList<>();
+
+
+    public AuthUser(String authUserId, String username, String password) {
         this.authUserId = authUserId;
         this.username = username;
         this.password = password;
-        this.accessToken = accessToken;
-        this.refreshToken = refreshToken;
+
     }
 
-    public AuthUser () {}
+    public AuthUser(){}
+
 }

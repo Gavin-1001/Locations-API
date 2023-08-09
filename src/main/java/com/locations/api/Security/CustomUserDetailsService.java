@@ -5,6 +5,7 @@ import com.locations.api.Services.AuthService.AuthenticationService;
 import com.locations.api.Services.UserService.UserService;
 import com.locations.api.Utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,7 +15,8 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-public abstract class CustomUserDetailsService implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
+
 
     @Autowired
     private AuthenticationService authenticationService;
