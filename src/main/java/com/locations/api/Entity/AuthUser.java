@@ -35,9 +35,10 @@ public class AuthUser {
     @Column(name = "role", nullable = false)
     private Role role;
 
-    @ManyToMany
-    private List<Locations> locationsList = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_locations_id", referencedColumnName = "id")
+    private List<Locations> locations;
 
     public AuthUser(String authUserId, String username, String password) {
         this.authUserId = authUserId;
