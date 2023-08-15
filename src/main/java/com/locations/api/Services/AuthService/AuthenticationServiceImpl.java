@@ -3,6 +3,7 @@ package com.locations.api.Services.AuthService;
 
 import com.locations.api.Entity.AuthUser;
 import com.locations.api.Entity.Role;
+import com.locations.api.Entity.User;
 import com.locations.api.Repository.AuthUserRepository;
 import com.locations.api.Security.Jwt.JwtProvider;
 import com.locations.api.Security.UserPrincipal;
@@ -64,7 +65,11 @@ public class AuthenticationServiceImpl implements AuthenticationService{
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         //if statement for user or employer was here
         user.setRole(Role.USER);
-
+        //getFirstName from authUser and set to User
+        User newUser = new User();
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setEmailAddress(user.getEmailAddress());
         return userAuthRepository.save(user);
 
     }

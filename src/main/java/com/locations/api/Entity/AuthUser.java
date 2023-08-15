@@ -35,15 +35,30 @@ public class AuthUser {
     @Column(name = "role", nullable = false)
     private Role role;
 
+    @Column()
+    private String firstName;
+
+    @Column()
+    private String lastName;
+
+    @Column()
+    private String emailAddress;
+
+    @OneToOne(mappedBy = "authUser")
+    private User user;
+
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="fk_locations_id", referencedColumnName = "id")
     private List<Locations> locations;
 
-    public AuthUser(String authUserId, String username, String password) {
+    public AuthUser(String authUserId, String username, String password, String firstName, String lastName, String emailAddress) {
         this.authUserId = authUserId;
         this.username = username;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailAddress = emailAddress;
 
     }
 
