@@ -13,16 +13,28 @@ public class Locations {
     private Long id;
 
     @Column()
-    private String startCity;
+    private String newStartCity;
 
     @Column()
     private String startCountry;
 
     @Column()
-    private String endCity;
+    private String startCityLat;
+
+    @Column()
+    private String startCityLong;
+
+    @Column()
+    private String newEndCity;
 
     @Column()
     private String endCountry;
+
+    @Column()
+    private String endCityLat;
+
+    @Column()
+    private String endCityLong;
 
     @Column()
     private String dateTravelled;

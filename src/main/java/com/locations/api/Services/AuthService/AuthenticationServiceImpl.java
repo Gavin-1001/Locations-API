@@ -1,23 +1,20 @@
 package com.locations.api.Services.AuthService;
 
-
 import com.locations.api.Entity.AuthUser;
 import com.locations.api.Entity.Role;
-import com.locations.api.Entity.User;
 import com.locations.api.Repository.AuthUserRepository;
 import com.locations.api.Security.Jwt.JwtProvider;
 import com.locations.api.Security.UserPrincipal;
 import com.locations.api.Services.JwtRefreshTokenService.JwtRefreshTokenService;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.BeanIds;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -66,10 +63,12 @@ public class AuthenticationServiceImpl implements AuthenticationService{
         //if statement for user or employer was here
         user.setRole(Role.USER);
         //getFirstName from authUser and set to User
-        User newUser = new User();
-        newUser.setFirstName(user.getFirstName());
-        newUser.setLastName(user.getLastName());
-        newUser.setEmailAddress(user.getEmailAddress());
+//todo -> come back to this later!!
+//        User newUser = new User();
+//        newUser.setFirstName(user.getFirstName());
+//        newUser.setLastName(user.getLastName());
+//        newUser.setEmailAddress(user.getEmailAddress());
+
         return userAuthRepository.save(user);
 
     }

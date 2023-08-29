@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface LocationsRepository extends JpaRepository<Locations, Long> {
 
-    List<Locations> findAllById(Long locationId);
+    List<Locations> findAll();
 
 
 }

@@ -18,7 +18,11 @@ public class User {
 
     private String emailAddress;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="authUserId", referencedColumnName = "id")
-    private AuthUser authUser;
+    ///ADDED THIS ENTITY CLASS. SEE THE AUTH_USER SERVICE
+    ///TRYING TO PASS FIRSTNAME, LASTNAME etc from auth user and set it
+    ///to the USER.
+
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name="authUserId", referencedColumnName = "id")
+//    private AuthUser authUser;
 }
