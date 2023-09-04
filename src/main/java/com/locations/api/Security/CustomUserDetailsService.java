@@ -2,10 +2,8 @@ package com.locations.api.Security;
 
 import com.locations.api.Entity.AuthUser;
 import com.locations.api.Services.AuthService.AuthenticationService;
-import com.locations.api.Services.UserService.UserService;
 import com.locations.api.Utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -11,21 +11,29 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/locations/")
 public class LocationsController {
 
-    @Autowired
-    private LocationsRepository locationsRepository;
 
     @Autowired
     private LocationService locationService;
 
+    @Autowired
+    private LocationsRepository locationsRepository;
+
 
     @GetMapping("getAll")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.ok(locationsRepository.findAll());
+        return ResponseEntity.ok(locationService.getAll());
     }
 
     @PostMapping("create")
     public ResponseEntity<Locations> create(@RequestBody Locations locations){
         return ResponseEntity.ok(locationService.createLocation(locations));
+    }
+
+    @GetMapping("getEndCities")
+    public ResponseEntity<?> getAllEndCities(){
+        //return ResponseEntity.ok(locationService.getAllEndCities());
+        //return locationsRepository.findAllByNewEndCity();
+        return null;
     }
 
     @PutMapping("update/{id}")
